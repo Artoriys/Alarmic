@@ -18,6 +18,7 @@ public static void play(String file) {
 
         clip.start();
         Thread.sleep( duration );
+        System.out.println("Something wrong!!");
     }
     catch (Exception exc) {
         exc.printStackTrace(System.out);
