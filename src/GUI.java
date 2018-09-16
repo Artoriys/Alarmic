@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.security.BasicPermission;
 import java.util.ArrayList;
 
 
@@ -26,7 +25,7 @@ public class GUI extends JFrame {
 
     }
 
-    public void makegui() {
+     void makegui() {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Alarmic");
@@ -60,9 +59,9 @@ public class GUI extends JFrame {
 
         panelE.add(panelEF);
 
-        frame.getContentPane().add(borderLayout.NORTH,panelN);
-        frame.getContentPane().add(borderLayout.WEST,panelE);
-        frame.getContentPane().add(borderLayout.SOUTH,panelS);
+        frame.getContentPane().add(BorderLayout.NORTH,panelN);
+        frame.getContentPane().add(BorderLayout.WEST,panelE);
+        frame.getContentPane().add(BorderLayout.SOUTH,panelS);
 
 
         frame.setSize(320, 300);
@@ -70,7 +69,6 @@ public class GUI extends JFrame {
         Setbutton.addActionListener(new SetListener());
         DelButton.addActionListener(new DelListener());
         frame.setResizable(false);
-       // time.add(0);
     }
     class SetListener implements ActionListener {
 
@@ -85,8 +83,6 @@ public class GUI extends JFrame {
             data.addElement(sm);
            // AlarmClock.setAlarmTime(Integer.parseInt(s));
             time.add(Integer.parseInt(s));
-            System.out.println(data);
-        System.out.println(time);
 
        // System.out.println(data);
 
@@ -104,10 +100,10 @@ public class GUI extends JFrame {
         return x;
     }
 
-public void dataremover() {
+ void dataremover() {
         data.remove(0);
         time.remove(0);
-        AlarmClock.setAlarmTime(time.get(1));
+        AlarmClock.setAlarmTime(time.get(0));
 
 }
 }
