@@ -3,8 +3,7 @@ import java.util.Calendar;
 
 
 public class AlarmClock {
-  public static int AlarmTime;
-  public static int SAlarmTime;
+   static int AlarmTime;
     public static void main(String[] args) {
         GUI gui = new GUI();
         gui.makegui();
@@ -17,25 +16,26 @@ public class AlarmClock {
             while (true) {
                 Thread.sleep(2000);
                 int time = alarmTime.TimeDef();
-                String stime_b = alarmTime.TimeDef_S();
-                System.out.println(time);
-                System.out.println("Stand by. Time has not come yet........................................");
+                String stime_b = AlarmClock.TimeDef_S();
+               // System.out.println(time);
+               // System.out.println("Stand by. Time has not come yet........................................");
+                try {
+                    // AlarmTime = gui.getTime();
+                    if (time == gui.getTime()) {
+                        System.out.println(stime_b);
+                        Alarm.play("C:\\Java\\AlarmClock\\src\\ala.wav");
+                        gui.dataremover();
+                        // textToSpeech.SpeakText(stime_b);
 
-               // AlarmTime = gui.getTime();
-                if (time == gui.getTime()) {
-                    System.out.println(stime_b);
-                    Alarm.play("C:\\Java\\AlarmClock\\src\\ala.wav");
-                    gui.dataremover();
-                    // textToSpeech.SpeakText(stime_b);
 
-
+                    }
+                } catch (Exception exc) {
+                  //  System.out.println(exc);
                 }
-
             }
-
-        } catch (Exception exc) {
-        System.out.println(exc);
+        } catch (Exception e) {
         }
+
 
     }
     public static void setAlarmTime(int x) {
