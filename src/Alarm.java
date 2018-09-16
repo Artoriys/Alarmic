@@ -13,12 +13,12 @@ public static void play(String file) {
         long dur = mus.getFrameLength();
         double durationInSeconds = (dur+0.0) / format.getFrameRate()*1000;
         int duration = (int) durationInSeconds;
-        String name = format.toString();
+       // String name = format.toString();
        // System.out.println("Format of the recording is "+name);
 
         clip.start();
         Thread.sleep( duration );
-        System.out.println("Something wrong1111!!");
+
     }
     catch (Exception exc) {
         exc.printStackTrace(System.out);
